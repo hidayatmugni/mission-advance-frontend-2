@@ -3,19 +3,19 @@ import Episode from "../Element/Nametag/Episode";
 
 const Card = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { image, name, rating, episode } = props;
+  const { image, name, rating, series } = props;
 
   return (
     <>
       <div>
-        <div className="relative w-[220px] lg:w-[320px] bg-gray-800">
-          <div className="relative mt-3">
-            <img src={image} className="rounded-xl w-full " alt="" />
-            {episode === "Episode Baru" ? <Episode variant="absolute bg-blue-700 top-3 left-3" children={episode} /> : null}
-            {episode === "Premium" ? <Episode variant="absolute bg-yellow-500 top-3 left-3" children={episode} /> : null}
+        <div className="relative w-[320px] lg:w-[360px] rounded-3xl">
+          <div className="relative">
+            <img src={image} className="w-full rounded-xl" alt="" />
+            {series === "Episode Baru" ? <Episode variant="absolute bg-blue-700 top-3 left-3" children={series} /> : null}
+            {series === "Premium" ? <Episode variant="absolute bg-yellow-500 top-3 left-3" children={series} /> : null}
             <div className="absolute flex justify-between left-5 lg:left-6 right-2 bottom-4">
-              <p className="text-lg lg:text-xl text-white">{name}</p>
-              <p className="text-xl text-white">⭐{rating}</p>
+              <p className="text-md lg:text-xl text-white">{name}</p>
+              <p className="text-md lg:text-xl text-white">⭐{rating}</p>
             </div>
           </div>
         </div>

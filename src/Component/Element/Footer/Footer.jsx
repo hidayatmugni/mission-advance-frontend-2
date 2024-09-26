@@ -5,7 +5,10 @@ const Footer = () => {
         <div className=" lg:w-screen py-12 px-4 sm:px-6 lg:px-8 lg:py-12">
           <div className="lg:flex lg:items-center lg:gap-20 lg:justify-around border-t border-gray-700-4">
             <div className="text-left lg:text-left lg:w-1/4">
-              <img src="../assets/Logo.png" alt="" className="w-40" />
+              <div className="flex items-center mt-8">
+                <img src="../assets/logo.svg" alt="" className="lg:w-16 w-12" />
+                <h1 className="text-4xl lg:text-5xl text-white font-bold">CHILL</h1>
+              </div>
               <p className="text-sm text-white mt-4 lg:mt-8 lg:text-lg ">Copyright 2024 By mugnihidayat</p>
             </div>
             <div>

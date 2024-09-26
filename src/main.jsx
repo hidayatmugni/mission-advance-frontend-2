@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Pages/Error.jsx";
 import Halaman from "./Pages/Halaman.jsx";
 import BerandaPage from "./Pages/BerandaPage.jsx";
+import AdminDashboard from "./Pages/AdminPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/beranda",
     element: <BerandaPage />,
+  },
+
+  {
+    path: "/admin",
+    element: <AdminDashboard />,
   },
 ]);
 
