@@ -4,12 +4,12 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <div className="navbar flex justify-between items-center lg:py-6 md:py-4 p-2 mt-2">
+        <div className="navbar flex justify-between items-center lg:py-6 md:py-4 p-2 mt-2 bg-slate-900">
           <div className="flex items-center gap-4 lg:gap-8 md:gap-6 ml-2 lg:ml-8 md:ml-6">
-            <a className="flex items-center justify-center">
+            <Link to="/beranda" className="flex items-center justify-center">
               <img src="../assets/logo.svg" alt="" className="w-8 lg:w-12" />
               <p className="font-londrina font-text-3xl font-bold lg:text-5xl text-white hidden lg:block font-sans">CHILL</p>
-            </a>
+            </Link>
             <div className="flex text-sm gap-2 lg:gap-8 md:gap-6 lg:text-xl md:text-lg text-white font-md text-xs ml-10 ">
               <a href="#">Series</a>
               <a href="#">Films</a>
@@ -28,16 +28,16 @@ const Navbar = () => {
                   <summary className="mr-4" />
                   <ul className="bg-slate-800 w-48 relative right-0 z-10">
                     <li className="">
-                      <a>
+                      <Link to="/beranda/profile">
                         <img src="../assets/user.svg" alt="" />
                         <p>Profil saya</p>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a>
+                      <Link to="/beranda/premium">
                         <img src="../assets/star.svg" alt="" />
                         <p>Ubah Premium</p>
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <div>

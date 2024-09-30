@@ -8,7 +8,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Pages/Error.jsx";
 import Halaman from "./Pages/Halaman.jsx";
 import BerandaPage from "./Pages/BerandaPage.jsx";
-import AdminDashboard from "./Pages/AdminPage.jsx";
+
+import TaskList from "./Pages/AdminPage.jsx";
+import Profile from "./Pages/Profil.jsx";
+import Premium from "./Pages/Premium.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +31,18 @@ const router = createBrowserRouter([
     path: "/beranda",
     element: <BerandaPage />,
   },
+  {
+    path: "/beranda/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/beranda/premium",
+    element: <Premium />,
+  },
 
   {
     path: "/admin",
-    element: <AdminDashboard />,
+    element: <TaskList />,
   },
 ]);
 
