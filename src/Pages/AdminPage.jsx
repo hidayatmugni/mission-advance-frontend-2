@@ -1,10 +1,41 @@
+import { useShallow } from "zustand/shallow";
+import useStore from "../store/store";
+
+const Counter = () => {
+  console.log("counter render");
+  // const { count, increment } = useStore();
+  // const count = useStore((state) => state.count);
+  // const increment = useStore((state) => state.increment);
+  const { count, increment } = useStore(useShallow((state) => ({ count: state.count, increment: state.increment })));
+  return (
+    <div>
+      <span>{count}</span>
+      <button className="bg-red-500 text-white p-2 rounded-xl" onClick={increment}>
+        one up
+      </button>
+    </div>
+  );
+};
+const User = () => {
+  console.log("user render");
+  // const { user } = useStore();
+  const user = useStore((state) => state.user);
+  return (
+    <div>
+      <span>{user}</span>
+    </div>
+  );
+};
+
 const Admin = () => {
+  // const user = useStore((state) => state.user);
+  // const count = useStore((state) => state.count);
+  // const increment = useStore((state) => state.increment);
+
   return (
     <>
-      <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-      </a>
+      <Counter></Counter>
+      <User></User>
     </>
   );
 };

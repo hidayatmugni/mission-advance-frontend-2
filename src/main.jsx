@@ -9,9 +9,9 @@ import ErrorPage from "./Pages/Error.jsx";
 import Halaman from "./Pages/Halaman.jsx";
 import BerandaPage from "./Pages/BerandaPage.jsx";
 
-import TaskList from "./Pages/AdminPage.jsx";
 import Profile from "./Pages/Profil.jsx";
 import Premium from "./Pages/Premium.jsx";
+import Admin from "./Pages/AdminPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <TaskList />,
+    element: <Admin />,
   },
 ]);
 

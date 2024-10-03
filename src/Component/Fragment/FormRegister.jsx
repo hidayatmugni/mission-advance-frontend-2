@@ -1,17 +1,12 @@
 /* eslint-disable react/no-children-prop */
 import { Link } from "react-router-dom";
 import InputForm from "../Element/Input";
+// import { useState } from "react";
 const FormRegister = () => {
-  const handleRegister = (e) => {
-    e.preventDefault();
-    localStorage.setItem("name", e.target.name.value);
-    localStorage.setItem("email", e.target.email.value);
-    localStorage.setItem("password", e.target.password.value);
-  };
   return (
     <>
-      <form onSubmit={handleRegister} className="w-full mt-[-2]">
-        <InputForm type="text" name="name" placeholder="Masukan Username" children="Username" />
+      <form className="w-full mt-[-2]">
+        <InputForm type="text" name="username" placeholder="Masukan Username" children="Username" />
         <InputForm type="email" name="email" placeholder="Masukan Email" children="Email" />
         <InputForm type="password" name="password" placeholder="Masukan Password" children="Password" />
         <InputForm type="password" name="password" placeholder="Konfirmasi Password" children="Konfirmasi password" />

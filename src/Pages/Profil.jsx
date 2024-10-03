@@ -2,8 +2,21 @@ import { Link } from "react-router-dom";
 import Navbar from "../Component/Element/Navbar/Navbar";
 import Footer from "../Component/Element/Footer/Footer";
 import Button from "../Component/Element/Button/Button";
+// import useLoginStore from "../store/store";
 
 const Profile = () => {
+  // const userName = useLoginStore((state) => state.userName);
+  // const updateUserName = useLoginStore((state) => state.updateUserName);
+
+  // const email = useLoginStore((state) => state.email);
+  // const updateEmail = useLoginStore((state) => state.updateEmail);
+
+  // const password = useLoginStore((state) => state.firstName);
+  // // const updatePassword = useLoginStore((state) => state.updatePassword);
+  const userName = localStorage.getItem("username");
+  const email = localStorage.getItem("email");
+  const password = localStorage.getItem("password");
+
   return (
     <div className="bg-slate-900">
       <Navbar />
@@ -17,7 +30,7 @@ const Profile = () => {
               <p>Dapatkan Akses Tak Terbatas ke Ribuan Film dan Series Kesukaan Kamu!</p>
               <Link
                 to=""
-                className="bg-black/30 p-2 text-center lg:mr-8 w-1/2 ml-[120px]
+                className="bg-black/30 p-2 text-center lg:mr-8 w-[150px] ml-[60px]
               rounded-3xl py-2 lg:py-1 text-sm lg:text-lg mt-4 lg:w-1/2 lg:ml-"
               >
                 Mulai Berlangganan
@@ -44,44 +57,35 @@ const Profile = () => {
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Username
                 </label>
-                <div className="overflow-hidden">
-                  <input id="OrderNotes" className="w-full border-transparent resize-none text-white text-lg  bg-transparent focus:ring-0" placeholder="Username"></input>
-
-                  <div>
-                    <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
-                      🖊
-                    </button>
-                  </div>
+                <h1 className="text-white text-xl ">{userName}</h1>
+                <div>
+                  <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
+                    🖊
+                  </button>
                 </div>
               </div>
               <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-16 mt-10">
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Email
                 </label>
-                <div className="overflow-hidden">
-                  <input id="OrderNotes" className="w-full border-transparent resize-none text-white text-lg  bg-transparent focus:ring-0" placeholder="Email"></input>
-
-                  <div>
-                    <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
-                      🖊
-                    </button>
-                  </div>
+                <h1 className="text-white text-xl ">{email}</h1>
+                <div>
+                  <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
+                    🖊
+                  </button>
                 </div>
               </div>
-              <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-16 mt-10">
+              <div className="relative bg-gray-200/10 rounded-xl border-none px-6 h-16 mt-10">
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Kata Sandi
                 </label>
-                <div className="overflow-hidden">
-                  <input id="OrderNotes" className="w-full border-transparent resize-none text-white text-lg  bg-transparent focus:ring-0" placeholder="Kata Sandi"></input>
-
-                  <div>
-                    <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
-                      🖊
-                    </button>
-                  </div>
+                <h1 className="text-white text-xl ">{password}</h1>
+                <div>
+                  <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
+                    🖊
+                  </button>
                 </div>
-                <Button variant="bg-blue-800 lg:ml-[-20px] hover:bg-blue-700 text-white rounded-3xl py-2 lg:py-2 text-sm lg:text-lg mt-4">Simpan</Button>
+                <Button variant="bg-blue-800 lg:ml-[-20px] hover:bg-blue-700 text-white rounded-3xl py-2 lg:py-2 text-sm lg:text-lg mt-12">Simpan</Button>
               </div>
             </div>
           </div>
@@ -90,16 +94,16 @@ const Profile = () => {
           <div className="flex justify-center gap-4 flex-wrap mb-10">
             {/* Card */}
             <div>
-              <img src="/public/assets/number/Number=15.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=15.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src="/public/assets/number/Number=16.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=16.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src="/public/assets/number/Number=17.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=17.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src="/public/assets/number/Number=19.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=19.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
               <img src="/public/assets/number/Number=20.png" alt="" className="w-28 lg:w-[200px] mt-8" />

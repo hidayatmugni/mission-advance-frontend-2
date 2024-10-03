@@ -7,7 +7,7 @@ const Premium = () => {
       <Navbar></Navbar>
       {/* why choice us */}
       <div className="lg:mx-[80px] my-[80px] ">
-        <h1 className="text-white font-semibold text-3xl text-center mt-20 mb-10">Menapa Harus Berlangganan?</h1>
+        <h1 className="text-white font-semibold text-2xl lg:text-4xl text-center mt-20 mb-10">Menapa Harus Berlangganan?</h1>
         <div className="flex flex-wrap gap-[40px] justify-center py-[40px] ">
           <div className="flex flex-col items-center gap-[24px] lg:w-[400px]">
             <img src="../assets/arrow-down.svg" alt="" className="h-10" />
@@ -39,7 +39,7 @@ const Premium = () => {
         <h1 className="text-white font-semibold text-3xl text-center mb-2">Pilih Paketmu</h1>
         <p className="text-white  text-center mb-10 font-light">Temukan paket sesuai kebutuhanmu!</p>
         {/* paket premim */}
-        <div className="flex justify-center px-3 gap-16">
+        <div className="flex flex-col lg:flex-row justify-center px-3 gap-16">
           <div className="bg-blue-800 w-full rounded-2xl px-[25px] lg:w-[320px] py-[30px]">
             <h1 className="text-white font-md rounded-[28px] text-2xl  bg-gray-800 p-4 w-1/2 text-center ml-3 mt-3">Individual</h1>
             <p className="text-white mt-8 font-light text-2xl">Mulai dari Rp49,990/bulan</p>
@@ -47,15 +47,15 @@ const Premium = () => {
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Tidak ada iklan</p>
+                <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Kualitas 720p</p>
+                <p className="text-white font-light text-xl">Kualitas 720p</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Download konten plihan</p>
+                <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">
@@ -64,21 +64,21 @@ const Premium = () => {
             </div>
           </div>
           <div className="bg-blue-800 w-full rounded-2xl px-[25px] lg:w-[320px] py-[30px]">
-            <h1 className="text-white font-md rounded-[28px] text-2xl  bg-gray-800 p-4 w-1/2 text-center ml-3 mt-3">Individual</h1>
-            <p className="text-white mt-8 font-light text-2xl">Mulai dari Rp49,990/bulan</p>
-            <p className="text-white font-light text-2xl">1 Akun</p>
+            <h1 className="text-white font-md rounded-[28px] text-2xl  bg-gray-800 p-4 w-1/2 text-center ml-3 mt-3">Berdua</h1>
+            <p className="text-white mt-8 font-light text-2xl">Mulai dari Rp79,990/bulan</p>
+            <p className="text-white font-light text-2xl">2 Akun</p>
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Tidak ada iklan</p>
+                <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Kualitas 720p</p>
+                <p className="text-white font-light text-xl">Kualitas 1080p</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Download konten plihan</p>
+                <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">
@@ -87,21 +87,21 @@ const Premium = () => {
             </div>
           </div>
           <div className="bg-blue-800 w-full rounded-2xl px-[25px] lg:w-[320px] py-[30px]">
-            <h1 className="text-white font-md rounded-[28px] text-2xl  bg-gray-800 p-4 w-1/2 text-center ml-3 mt-3">Individual</h1>
+            <h1 className="text-white font-md rounded-[28px] text-2xl  bg-gray-800 p-4 w-1/2 text-center ml-3 mt-3">Keluarga</h1>
             <p className="text-white mt-8 font-light text-2xl">Mulai dari Rp49,990/bulan</p>
-            <p className="text-white font-light text-2xl">1 Akun</p>
+            <p className="text-white font-light text-2xl">5-7 Akun</p>
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Tidak ada iklan</p>
+                <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Kualitas 720p</p>
+                <p className="text-white font-light text-xl">Kualitas 4K</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
                 <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
-                <p className="text-white font-light text-lg">Download konten plihan</p>
+                <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">

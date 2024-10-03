@@ -27,7 +27,7 @@ const FilmLayout2 = (props) => {
           <div ref={containerRef} className="flex gap-2 overflow-x-hidden scroll-smooth ">
             {Films3.map((Films3) => (
               <div key={Films3.id}>
-                <CardFilm2 image={Films3.image} premium={Films3.premium} top={Films3.top} episode={Films3.episode} id={Films3.id} />
+                <CardFilm2 image={Films3.image} series={Films3.series} />
               </div>
             ))}
           </div>

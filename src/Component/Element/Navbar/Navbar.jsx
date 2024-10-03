@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    window.location.href = "/login";
+  };
   return (
     <>
       <div>
@@ -42,7 +48,9 @@ const Navbar = () => {
                     <li>
                       <div>
                         <img src="../assets/keluar.svg" alt="" />
-                        <Link to="/login">Keluar</Link>
+                        <Link to="" onClick={handleLogout}>
+                          Keluar
+                        </Link>
                       </div>
                     </li>
                   </ul>
