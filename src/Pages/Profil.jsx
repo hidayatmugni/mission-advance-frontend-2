@@ -23,7 +23,7 @@ const Profile = () => {
       <div className="flex flex-col justify-center mx-[20px] lg:mx-[80px] mt-10">
         <div>
           <div className="lg:absolute flex justify-center bg-gray-300/10 rounded-3xl p-4 lg:w-[40%] lg:right-[40px] lg:mt-10">
-            <img src="/public/assets/warning.svg" alt="" className="h-28" />
+            <img src=".../assets/warning.svg" alt="" className="h-28" />
             {/* text Berlangganan */}
             <div className="flex flex-col gap-2 text-white">
               <h1 className="font-semibold text-3xl ">Beralangganan</h1>
@@ -106,10 +106,10 @@ const Profile = () => {
               <img src="../assets/number/Number=19.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src="/public/assets/number/Number=20.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src=".../assets/number/Number=20.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src="/public/assets/number/Number=21.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src=".../assets/number/Number=21.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
           </div>
         </div>

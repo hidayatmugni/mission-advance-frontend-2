@@ -46,15 +46,15 @@ const Premium = () => {
             <p className="text-white font-light text-2xl">1 Akun</p>
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Kualitas 720p</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
@@ -69,15 +69,15 @@ const Premium = () => {
             <p className="text-white font-light text-2xl">2 Akun</p>
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Kualitas 1080p</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
@@ -92,15 +92,15 @@ const Premium = () => {
             <p className="text-white font-light text-2xl">5-7 Akun</p>
             <div className="mt-6 px-6">
               <div className="mt-10 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Tidak ada iklan</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px]">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Kualitas 4K</p>
               </div>
               <div className="mt-3 flex  items-center gap-[8px] border-b-2 border-gray-500 pb-10">
-                <img src="/public/assets/chekclist.svg" alt="" className="h-4" />
+                <img src="../assets/chekclist.svg" alt="" className="h-4" />
                 <p className="text-white font-light text-xl">Download konten plihan</p>
               </div>
             </div>
