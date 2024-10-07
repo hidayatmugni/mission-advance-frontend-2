@@ -1,6 +1,4 @@
-/* eslint-disable react/no-children-prop */
-
-import InputForm from "../Element/Input";
+// import InputForm from "../Element/Input";
 import { Link } from "react-router-dom";
 // import useLoginStore from "../../store/store";
 import { useState } from "react";
@@ -9,7 +7,6 @@ import { useState } from "react";
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = (e) => {
@@ -26,8 +23,7 @@ const FormLogin = () => {
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("loggedInUser", JSON.stringify(storedUser));
 
-        // Redirect ke halaman profil atau state perubahan
-        window.location.href = "/profile"; // Ini hanya contoh untuk redirect
+        window.location.href = "/beranda/profile";
       } else {
         setErrorMessage("Invalid email or password");
       }
@@ -39,8 +35,10 @@ const FormLogin = () => {
   return (
     <>
       <form onSubmit={handleLogin} className="w-full">
-        <InputForm type="email" name="email" placeholder="Masukan Email" children="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <InputForm type="password" name="password" placeholder="Masukan Password" children="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label htmlFor=""> Email</label>
+        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} required className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border border-white" />
+        <label htmlFor=""> Password</label>
+        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} required className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border border-white" autoComplete="off" />
         <div className="flex justify-between">
           <p>
             Belum punya akun?{" "}

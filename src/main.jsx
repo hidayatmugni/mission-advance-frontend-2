@@ -11,7 +11,7 @@ import BerandaPage from "./Pages/BerandaPage.jsx";
 
 import Profile from "./Pages/Profil.jsx";
 import Premium from "./Pages/Premium.jsx";
-import Admin from "./Pages/AdminPage.jsx";
+import AdminPage from "./Pages/AdminPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <Admin />,
+    element: <AdminPage />,
   },
 ]);
 

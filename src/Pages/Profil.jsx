@@ -2,20 +2,27 @@ import { Link } from "react-router-dom";
 import Navbar from "../Component/Element/Navbar/Navbar";
 import Footer from "../Component/Element/Footer/Footer";
 import Button from "../Component/Element/Button/Button";
+import { useEffect, useState } from "react";
 // import useLoginStore from "../store/store";
 
 const Profile = () => {
-  // const userName = useLoginStore((state) => state.userName);
-  // const updateUserName = useLoginStore((state) => state.updateUserName);
+  const [user, setUser] = useState(null);
 
-  // const email = useLoginStore((state) => state.email);
-  // const updateEmail = useLoginStore((state) => state.updateEmail);
+  useEffect(() => {
+    // Ambil data pengguna yang sedang login dari localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    }
+  }, []);
+  const hidePassword = (password) => {
+    // Ganti password dengan tanda bintang (*)
+    return "*".repeat(password.length);
+  };
 
-  // const password = useLoginStore((state) => state.firstName);
-  // // const updatePassword = useLoginStore((state) => state.updatePassword);
-  const userName = localStorage.getItem("username");
-  const email = localStorage.getItem("email");
-  const password = localStorage.getItem("password");
+  if (!user) {
+    return <p>No user is logged in. Please login first.</p>;
+  }
 
   return (
     <div className="bg-slate-900">
@@ -53,39 +60,39 @@ const Profile = () => {
             </div>
             {/* Edit Data Profil */}
             <div>
-              <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-16 mt-10">
+              <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-20 mt-10">
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Username
                 </label>
-                <h1 className="text-white text-xl ">{userName}</h1>
+                <input className="text-white text-xl bg-transparent" value={user.username} readOnly />
                 <div>
                   <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
                     🖊
                   </button>
                 </div>
               </div>
-              <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-16 mt-10">
+              <div className="relative bg-gray-200/10 rounded-xl  border-none px-6 h-20 mt-10">
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Email
                 </label>
-                <h1 className="text-white text-xl ">{email}</h1>
+                <input className="text-white text-xl bg-transparent " value={user.email} readOnly />
                 <div>
                   <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
                     🖊
                   </button>
                 </div>
               </div>
-              <div className="relative bg-gray-200/10 rounded-xl border-none px-6 h-16 mt-10">
+              <div className="relative bg-gray-200/10 rounded-xl border-none px-6 h-20 mt-10">
                 <label htmlFor="OrderNotes" className="block text-lg font-medium text-gray-300 ">
                   Kata Sandi
                 </label>
-                <h1 className="text-white text-xl ">{password}</h1>
+                <input className="text-white text-xl bg-transparent border-none" type="password" value={hidePassword(user.password)} readOnly />
                 <div>
                   <button type="button" className="absolute right-3 top-6 text-xl bg-none ">
                     🖊
                   </button>
                 </div>
-                <Button variant="bg-blue-800 lg:ml-[-20px] hover:bg-blue-700 text-white rounded-3xl py-2 lg:py-2 text-sm lg:text-lg mt-12">Simpan</Button>
+                <Button variant="bg-blue-800 lg:ml-[-20px] hover:bg-blue-700 text-white rounded-3xl py-2 lg:py-2 text-sm lg:text-lg">Simpan</Button>
               </div>
             </div>
           </div>
@@ -106,10 +113,10 @@ const Profile = () => {
               <img src="../assets/number/Number=19.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src=".../assets/number/Number=20.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=20.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
             <div>
-              <img src=".../assets/number/Number=21.png" alt="" className="w-28 lg:w-[200px] mt-8" />
+              <img src="../assets/number/Number=21.png" alt="" className="w-28 lg:w-[200px] mt-8" />
             </div>
           </div>
         </div>

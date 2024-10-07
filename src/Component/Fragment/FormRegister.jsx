@@ -1,6 +1,5 @@
-/* eslint-disable react/no-children-prop */
 import { Link } from "react-router-dom";
-import InputForm from "../Element/Input";
+// import InputForm from "../Element/Input";
 import { useState } from "react";
 // import useAuthStore from "../../stores/useAuthStore";
 
@@ -10,12 +9,9 @@ const FormRegister = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [user, setUser] = useState([]);
 
   const handleRegister = (e) => {
     e.preventDefault();
-    setUser([...user, { username, email, password }]);
-    console.log(user);
 
     // Cek apakah password dan konfirmasi password cocok
     if (password !== confirmPassword) {
@@ -24,9 +20,8 @@ const FormRegister = () => {
     }
 
     // Simpan data pengguna ke localStorage
-    // const userData = { username, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
-    console.log("user", user);
+    const userData = { username, email, password };
+    localStorage.setItem("user", JSON.stringify(userData));
 
     // Reset form
     setUsername("");
@@ -35,15 +30,37 @@ const FormRegister = () => {
     setConfirmPassword("");
     setErrorMessage("");
 
-    // console.log("user", userData);
+    alert("Registration Successful!");
+    console.log(userData);
   };
   return (
     <>
       <form onSubmit={handleRegister} className="w-full mt-[-2]">
-        <InputForm type="text" name="username" placeholder="Masukan Username" children="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
-        <InputForm type="email" name="email" placeholder="Masukan Email" children="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <InputForm type="password" name="password" placeholder="Masukan Password" children="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <InputForm type="password" name="password" placeholder="Masukan Password" children="Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+        <label htmlFor="">Username</label>
+        <input type="text" name="username" placeholder="Masukan Username" className="w-full p-2 lg:p-3 rounded-3xl bg-transparent text-white border border-white" onChange={(e) => setUsername(e.target.value)} value={username} />
+        <label htmlFor="">Email</label>
+        <input type="email" name="email" placeholder="Masukan email" className="w-full p-2 lg:p-3 rounded-3xl bg-transparent text-white border border-white" onChange={(e) => setEmail(e.target.value)} value={email} />
+        <label htmlFor="">password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Masukan password"
+          className="w-full p-2 lg:p-3 rounded-3xl bg-transparent text-white border border-white"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          autoComplete="off"
+        />
+        <label htmlFor="">Confirm Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Masukan password"
+          className="w-full p-2 lg:p-3 rounded-3xl bg-transparent text-white border border-white"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+          autoComplete="off"
+        />
+
         <div>
           <p>
             Sudah punya akun?{" "}
@@ -53,7 +70,7 @@ const FormRegister = () => {
           </p>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           <button type="submit" className="w-full bg-gray-800 border border-white hover:bg-gray-800/80 hover:text-white text-xl rounded-3xl py-2 lg:py-2 text-sm lg:text-lg mt-6">
-            Daftar
+            <Link to="/login">Daftar</Link>
           </button>
           <h1 className="text-white font-light text-sm text-center mt-4">Atau</h1>
           <button className="w-full bg-black/80 border border-white hover:bg-gray-800/80 hover:text-white text-xl rounded-3xl py-2 lg:py-2 text-sm lg:text-lg mt-6">
