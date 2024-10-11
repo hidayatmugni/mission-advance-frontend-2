@@ -35,7 +35,7 @@ const FormRegister = () => {
   };
   return (
     <>
-      <form onSubmit={handleRegister} className="w-full mt-[-2]">
+      <form onSubmit={handleRegister} className="w-full mt-[-2] flex flex-col gap-2">
         <label htmlFor="">Username</label>
         <input type="text" name="username" placeholder="Masukan Username" className="w-full p-2 lg:p-3 rounded-3xl bg-transparent text-white border border-white" onChange={(e) => setUsername(e.target.value)} value={username} />
         <label htmlFor="">Email</label>

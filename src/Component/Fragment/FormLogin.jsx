@@ -1,40 +1,49 @@
 // import InputForm from "../Element/Input";
-import { Link } from "react-router-dom";
-// import useLoginStore from "../../store/store";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+// import useLoginStore from "../../store/store";
 // import { useShallow } from "zustand/shallow";
-// import { useShallow } from "zustand/shallow";
+
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    // Jika username dan password adalah admin, arahkan ke halaman /admin
+    if (email === "admin@admin.com" && password === "admin1234") {
+      alert("Login sebagai Admin berhasil!");
+      localStorage.setItem("isLoggedIn", true);
+      navigate("/admin");
+      return;
+    }
 
     // Ambil data pengguna dari localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     if (storedUser) {
       if (storedUser.email === email && storedUser.password === password) {
-        alert("Login Successful!");
+        alert("Login Berhasil!");
 
         // Simpan status login ke localStorage
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("loggedInUser", JSON.stringify(storedUser));
 
-        window.location.href = "/beranda/profile";
+        navigate("/beranda/profile"); // Menggunakan navigate untuk berpindah halaman
       } else {
-        setErrorMessage("Invalid email or password");
+        setErrorMessage("Email atau password salah");
       }
     } else {
-      setErrorMessage("No user found. Please register.");
+      setErrorMessage("Pengguna tidak ditemukan. Silakan daftar.");
     }
   };
 
   return (
     <>
-      <form onSubmit={handleLogin} className="w-full">
+      <form onSubmit={handleLogin} className="w-full flex flex-col gap-2">
         <label htmlFor=""> Email</label>
         <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} required className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border border-white" />
         <label htmlFor=""> Password</label>
@@ -65,4 +74,5 @@ const FormLogin = () => {
     </>
   );
 };
+
 export default FormLogin;

@@ -23,9 +23,13 @@ const EditFilm = ({ currentFilm, updateFilm, setEditing }) => {
       <label>name</label>
       <input type="text" name="title" value={film.name} onChange={handleInputChange} />
       <label>name</label>
-      <input type="text" name="genre" value={film.name} onChange={handleInputChange} />
-      <button type="submit">Update Film</button>
-      <button onClick={() => setEditing(false)}>Cancel</button>
+      <input type="text" name="series" value={film.series} onChange={handleInputChange} readOnly={false} />
+      <button type="submit" className=" ml-2 mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Update Film
+      </button>
+      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => setEditing(false)}>
+        Cancel
+      </button>
     </form>
   );
 };

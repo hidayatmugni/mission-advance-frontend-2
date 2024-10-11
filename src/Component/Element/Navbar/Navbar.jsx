@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("username");
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
-    window.location.href = "/login";
+    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("isLoggedIn");
+    navigate("/login");
   };
   return (
     <>
