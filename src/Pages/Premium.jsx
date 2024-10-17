@@ -59,7 +59,7 @@ const Premium = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">
-              <button className="bg-white py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
+              <button className="bg-white hover:bg-gray-300 py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
               <h2 className="text-center text-white text-xl lg:text-sm">Syarat dan Ketentuan Berlaku</h2>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Premium = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">
-              <button className="bg-white py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
+              <button className="bg-white hover:bg-gray-300 py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
               <h2 className="text-center text-white text-xl lg:text-sm">Syarat dan Ketentuan Berlaku</h2>
             </div>
           </div>
@@ -105,7 +105,7 @@ const Premium = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center px-5 gap-3 mt-4 lg:mt-3">
-              <button className="bg-white py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
+              <button className="bg-white hover:bg-gray-300 py-4 w-full mt-6 rounded-[48px] text-xl font-semibold text-blue-800 mx-auto">Langganan</button>
               <h2 className="text-center text-white text-xl lg:text-sm">Syarat dan Ketentuan Berlaku</h2>
             </div>
           </div>

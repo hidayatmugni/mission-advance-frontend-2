@@ -1,17 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Left from "../Element/Scroll/Left";
 import Right from "../Element/Scroll/Right";
-import getMovies from "../../Data/DataMovie";
 import CardFilm1 from "../Fragment/CardFilm1";
-// import CardFilm1 from "../Fragment/CardFilm";
-// import Film3 from "../../Data/Film3";
+import useApi from "../../stores/useApi";
 
 const FilmLayout1 = (props) => {
   // eslint-disable-next-line react/prop-types
   const { title } = props;
+  const { fetchData, data } = useApi();
   // Film Trending
-
-  const [movies, setMovies] = useState([]);
 
   const ITEM = 200;
   const [position, setPosition] = useState(0);
@@ -23,18 +20,17 @@ const FilmLayout1 = (props) => {
     containerRef.current.scrollLeft = newPosition;
   };
   useEffect(() => {
-    getMovies(setMovies);
-    console.log(movies);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
       <div className="mt-10 realtive">
-        <h1 className="text-white font-bold text-xl lg:text-4xl text-start ml-6 lg:ml-12">{title}</h1>
-        <div className="flex items-center p-6 lg:p-12 md:p-8  relative">
+        <h1 className="text-white font-semibold text-xl lg:text-3xl text-start ml-6 lg:ml-12 ">{title}</h1>
+        <div className="flex items-center p-6 lg:p-12 md:p-8 relative">
           <div ref={containerRef} className="flex gap-2 overflow-x-hidden scroll-smooth ">
-            {movies.length > 0 && movies.map((movie) => <CardFilm1 key={movie.id} image={movie.image} name={movie.name} series={movie.series} />)}
+            {/* Render data yang diambil dari API */}
+            {data.length > 0 && data.map((film) => <CardFilm1 key={film.id} image={film.image} name={film.name} series={film.series} />)}
           </div>
           <Left handleClickLeft={() => handleScroll(-ITEM)} variant="absolute"></Left>
           <Right handleClickRight={() => handleScroll(ITEM)} variant="absolute"></Right>

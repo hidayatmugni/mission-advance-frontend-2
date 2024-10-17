@@ -2,14 +2,13 @@ import Card from "../Fragment/Card";
 import Left from "../Element/Scroll/Left";
 import Right from "../Element/Scroll/Right";
 import { useState, useRef, useEffect } from "react";
-import getMovies from "../../Data/DataMovie";
+import useApi from "../../stores/useApi";
 
 const CardLayout = (props) => {
   // eslint-disable-next-line react/prop-types
   const { title } = props;
   // Melanjutkan nonton Flm
-  const [movies, setMovies] = useState([]);
-
+  const { fetchData, data } = useApi();
   const ITEM = 360;
   const [position, setPosition] = useState(0);
   const containerRef = useRef();
@@ -21,21 +20,20 @@ const CardLayout = (props) => {
   };
 
   useEffect(() => {
-    getMovies(setMovies);
-    console.log(movies);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
-      <div className="relative px-2 lg:mt-16 mt-10 ">
-        <h1 className="text-xl lg:text-3xl mt-6 lg:mb-6 font-bold text-white text-start ml-6 lg:ml-10">{title}</h1>
-        <div className="w-[100%]  lg:px-10 mx-auto flex items-center p-4">
-          <div ref={containerRef} className="flex gap-5 overflow-x-hidden  scroll-smooth ">
-            {movies.length > 0 && movies.map((movie) => <Card key={movie.id} image={movie.image} name={movie.name} series={movie.series} rating={movie.rating} />)}
+      <div className="mt-10 realtive">
+        <h1 className="text-white font-semibold text-xl lg:text-3xl text-start ml-6 lg:ml-12 ">{title}</h1>
+        <div className="flex items-center p-6 lg:p-12 md:p-8 relative">
+          <div ref={containerRef} className="flex gap-2 overflow-x-hidden scroll-smooth ">
+            {/* Render data yang diambil dari API */}
+            {data.length > 0 && data.map((film) => <Card key={film.id} image={film.image} name={film.name} series={film.series} />)}
           </div>
-          <Left handleClickLeft={() => handleScroll(-ITEM)} />
-          <Right handleClickRight={() => handleScroll(ITEM)} />
+          <Left handleClickLeft={() => handleScroll(-ITEM)} variant="absolute"></Left>
+          <Right handleClickRight={() => handleScroll(ITEM)} variant="absolute"></Right>
         </div>
       </div>
     </>

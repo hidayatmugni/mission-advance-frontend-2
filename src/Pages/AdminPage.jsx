@@ -1,63 +1,56 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import FilmList from "../Component/Admin/FilmList";
-import AddFilm from "../Component/Admin/AddFilm";
-import EditFilm from "../Component/Admin/EditFilm";
+import useApi from "../stores/useApi";
 import { Link, useNavigate } from "react-router-dom";
-import getMovies from "../Data/DataMovie";
-
-const API_URL = "https://670026164da5bd2375535bbc.mockapi.io/api/movie/movie"; // Ganti dengan URL MockAPI Anda
 
 const App = () => {
-  const [films, setFilms] = useState([]);
-  const [editing, setEditing] = useState(false);
-  const [currentFilm, setCurrentFilm] = useState({
-    id: null,
-    name: "",
-    image: "",
-  });
+  const { data, loading, error, fetchData, addData, updateData, deleteData } = useApi(); // Menggunakan custom hook
+  const [name, setName] = useState("");
+  const [series, setSeries] = useState("");
+  const [editId, setEditId] = useState(null); // Untuk menyimpan ID film yang sedang di-edit
+  const [editTitle, setEditTitle] = useState("");
 
-  // Fetch data dari API
   useEffect(() => {
-    getMovies(setFilms);
-  }, []);
+    fetchData(); // Mengambil data ketika komponen di-mount
+  }, [fetchData]);
 
-  // Tambah Film
-  const addFilm = (film) => {
-    axios.post(API_URL, film).then((response) => {
-      setFilms([...films, response.data]);
-    });
+  const handleAddFilm = () => {
+    const newFilm = { name, series };
+    addData(newFilm);
+    setName("");
+    setSeries(""); // Reset input setelah menambah Film
   };
 
-  // Hapus Film
-  // method Delete
-  const deleteFilm = (id) => {
-    axios.delete(`${API_URL}/${id}`).then(() => {
-      setFilms(films.filter((film) => film.id !== id));
-    });
+  const handleEditFilm = (film) => {
+    setName(film.name);
+    setSeries(film.series);
+    setEditId(film.id); // Menyimpan ID film yang akan di-edit
+    setEditTitle("Edit Film");
   };
 
-  // Edit Film
-  const editFilm = (film) => {
-    setEditing(true);
-    setCurrentFilm(film);
+  const handleUpdateFilm = () => {
+    const updatedFilm = { name, series };
+    updateData(editId, updatedFilm); // Update film dengan ID yang disimpan
+    setName("");
+    setSeries("");
+    setEditId(null); // Reset form setelah update
+    setEditTitle(""); // Kembali ke mode tambah film
   };
 
-  // Update Film
-  const updateFilm = (id, updatedFilm) => {
-    axios.put(`${API_URL}/${id}`, updatedFilm).then(() => {
-      setFilms(films.map((film) => (film.id === id ? updatedFilm : film)));
-      setEditing(false);
-      setCurrentFilm({ id: null, name: "", image: "" });
-    });
+  const handleDeleteFilm = (id) => {
+    deleteData(id); // Menghapus Film berdasarkan id
   };
+
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/login");
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="flex w-full bg-slate-900">
+      {/* Sidebar dan Logout */}
       <div>
         <div className="flex min-h-full  w-16 flex-col justify-between border-r border-e bg-slate-800  fixed ">
           <div>
@@ -144,10 +137,63 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="text-black bg-slate-900 pl-14 lg:p-20 lg:w-full">
-        <h1 className="text-2xl font-bold mb-4 lg:text-5xl text-center mt-10 mb-20 text-white border-b-2 border-slate-300 pb-6">Admin Dashboard - CRUD Films</h1>
-        {editing ? <EditFilm currentFilm={currentFilm} updateFilm={updateFilm} setEditing={setEditing} /> : <AddFilm addFilm={addFilm} />}
-        <FilmList films={films} deleteFilm={deleteFilm} editFilm={editFilm} />
+
+      {/* Main Content */}
+      <div className="text-black bg-slate-900 pl-14 lg:p-20 lg:w-full w-3/4">
+        <h1 className="text-2xl font-bold mb-4 lg:text-5xl ml-24 lg:ml-0 text-center mt-10 mb-20 text-white border-b-2 border-slate-300 pb-6">Admin Dashboard - CRUD Films</h1>
+
+        {/* Form Input */}
+        <div className="flex justify-center items-center w-full">
+          <form onSubmit={editTitle === "Edit Film" ? handleUpdateFilm : handleAddFilm} className="flex flex-col ml-24 lg:ml-0 gap-2 w-full lg:w-1/2">
+            <label className="text-2xl text-slate-200">Name</label>
+            <input className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border-white" type="text" placeholder="Masukan nama film" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <label className="text-2xl text-slate-200">Series</label>
+            <input className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border-white" type="text" placeholder="Masukan series film" name="series" value={series} onChange={(e) => setSeries(e.target.value)} />
+            <button className="bg-blue-800 hover:bg-blue-600 text-slate-200 font-bold py-2 mt-4 px-4 rounded-3xl" type="submit">
+              {editTitle === "Edit Film" ? "Update Film" : "Add Film"}
+            </button>
+          </form>
+        </div>
+
+        {/* Film List */}
+        <div className="film-list text-white bg-slate-900 p-4 w-full">
+          <h2 className="text-2xl font-bold mb-4 text-center">Film List</h2>
+          <table className="text-black border border-slate-300 w-full mt-4 text-xs lg:text-lg font-medium text-center">
+            <thead className="text-black bg-slate-300">
+              <tr className="bg-slate-500">
+                <th className="border border-slate-900">Id</th>
+                <th className="border border-slate-900">Name</th>
+                <th className="border border-slate-900">Series</th>
+                <th className="border border-slate-900">Image</th>
+                <th className="border border-slate-900">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-900 bg-slate-500">
+              {data.length > 0 ? (
+                data.map((film) => (
+                  <tr key={film.id} className="odd:bg-slate-400 even:bg-slate-300">
+                    <td className="border border-slate-900">{film.id}</td>
+                    <td className="border border-slate-900">{film.name}</td>
+                    <td className="border border-slate-900">{film.series}</td>
+                    <td className="border border-slate-900">{film.image}</td>
+                    <td className="flex gap-2 justify-center items-center">
+                      <button onClick={() => handleEditFilm(film)} className="bg-blue-500 hover:bg-blue-700 text-slate-200 font-bold py-1 px-2 rounded">
+                        Edit
+                      </button>
+                      <button onClick={() => handleDeleteFilm(film.id)} className="bg-red-500 hover:bg-red-700 text-slate-200 font-bold py-1 px-2 rounded">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5">No films</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
