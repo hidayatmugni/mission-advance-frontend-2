@@ -21,7 +21,7 @@ const FilmLayout2 = (props) => {
     containerRef.current.scrollLeft = newPosition;
   };
 
-  // Mengambil data dari API ketika komponen di-mount
+  // Mengambil data dari API ketika komponen useApi.js
   useEffect(() => {
     fetchData();
   }, [fetchData]);

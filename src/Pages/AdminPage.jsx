@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useApi from "../stores/useApi";
 import { Link, useNavigate } from "react-router-dom";
+import ErrorPage from "./Error";
 
 const App = () => {
   const { data, loading, error, fetchData, addData, updateData, deleteData } = useApi(); // Menggunakan custom hook
@@ -45,8 +46,27 @@ const App = () => {
     navigate("/login");
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    // loading
+    return (
+      <div role="alert" className="rounded-xl border border-gray-100 bg-white p-4 h-screen">
+        <div className="flex items-start gap-4">
+          <span className="text-green-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </span>
+
+          <div className="flex-1">
+            <strong className="block font-medium text-lg text-gray-900">Loading....</strong>
+
+            <p className="mt-1 text-sm text-gray-700">Your list changes have been saved.</p>
+          </div>
+        </div>
+      </div>
+    );
+  // error
+  if (error) return <ErrorPage>Error: {error}</ErrorPage>;
 
   return (
     <div className="flex w-full bg-slate-900">

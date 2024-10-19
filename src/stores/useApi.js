@@ -6,8 +6,7 @@ const useApi = () => {
   // Mengambil state dan actions dari Zustand store
   const { data, loading, error, fetchData, addData, updateData, deleteData } = useApiStore();
 
-  // Custom logic bisa ditambahkan di sini jika perlu
-
+  
   // Mengembalikan semua state dan actions
   return {
     data,

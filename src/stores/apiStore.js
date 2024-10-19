@@ -7,7 +7,6 @@ const useApiStore = create((set) => ({
   data: [],
   loading: false,
   error: null,
-
   // Method GET untuk mengambil data
   fetchData: async () => {
     set({ loading: true, error: null });
@@ -18,7 +17,6 @@ const useApiStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
-
   // Method POST untuk menambahkan data baru
   addData: async (newData) => {
     set({ loading: true, error: null });
@@ -29,7 +27,6 @@ const useApiStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
-
   // Method PUT untuk mengedit data berdasarkan id
   updateData: async (id, updatedData) => {
     set({ loading: true, error: null });
@@ -43,7 +40,6 @@ const useApiStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
-
   // Method DELETE untuk menghapus data berdasarkan id
   deleteData: async (id) => {
     set({ loading: true, error: null });

@@ -61,7 +61,7 @@ const FormRegister = () => {
           autoComplete="off"
         />
 
-        <div>
+        <div className="text-sm lg:text-lg">
           <p>
             Sudah punya akun?{" "}
             <Link to="/login" className="text-blue-500 hover:underline">

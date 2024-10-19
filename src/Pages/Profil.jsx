@@ -30,7 +30,7 @@ const Profile = () => {
       <div className="flex flex-col justify-center mx-[20px] lg:mx-[80px] mt-10">
         <div>
           <div className="lg:absolute flex justify-center bg-gray-300/10 rounded-3xl p-4 lg:w-[40%] lg:right-[40px] lg:mt-10">
-            <img src=".../assets/warning.svg" alt="" className="h-28" />
+            <img src="../assets/warning.svg" alt="" className="h-28" />
             {/* text Berlangganan */}
             <div className="flex flex-col gap-2 text-white">
               <h1 className="font-semibold text-3xl ">Beralangganan</h1>
@@ -38,7 +38,7 @@ const Profile = () => {
               <Link
                 to=""
                 className="bg-black/30 p-2 text-center lg:mr-8 w-[150px] ml-[60px]
-              rounded-3xl py-2 lg:py-1 text-sm lg:text-lg mt-4 lg:w-1/2 lg:ml-"
+              rounded-3xl py-2 lg:py-1 text-sm lg:text-lg mt-4 lg:w-1/2 hover:cursor-pointer hover:bg-gray-700"
               >
                 Mulai Berlangganan
               </Link>

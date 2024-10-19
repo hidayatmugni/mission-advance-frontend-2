@@ -48,7 +48,7 @@ const FormLogin = () => {
         <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} required className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border border-white" />
         <label htmlFor=""> Password</label>
         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} required className="p-2 lg:p-3 rounded-3xl bg-transparent text-white w-full border border-white" autoComplete="off" />
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm lg:text-lg">
           <p>
             Belum punya akun?{" "}
             <Link to="/register" className="text-blue-500 hover:underline">
